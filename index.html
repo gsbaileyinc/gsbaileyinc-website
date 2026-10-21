@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gary S. Bailey, Inc.</title>
+<meta name="description" content="Gary S. Bailey, Inc. — Florida certified building contractor in Middleburg, FL since 1987. School renovations, additions and new construction.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Libre+Baskerville:wght@700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a contractor's drawing set — dark title-block hero, then sheets separated by heavy rules; projects read like a job schedule. */
+:root {
+  --paper: #ffffff;
+  --sheet: #f1f6fc;
+  --ink: #10233a;
+  --muted: #4c5f74;
+  --rule: #d3dde8;
+  --navy: #12305c;   /* company navy */
+  --navy-ink: #ffffff;
+  --navy-muted: #d9e9f8;
+  --navy-line: rgba(255,255,255,.4);
+  --ochre: #a8740c;
+  --ochre-on-navy: #ffd27a;
+  --serif: "Libre Baskerville", "Times New Roman", Times, serif;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0b1622; --sheet: #102031; --ink: #e6eef6; --muted: #9fb2c5; --rule: #23384d;
+  --navy: #0c2246; --navy-ink: #ffffff; --navy-muted: #c9ddf0; --navy-line: rgba(255,255,255,.3); --ochre: #e6b04a; --ochre-on-navy: #ffd27a;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0b1622; --sheet: #102031; --ink: #e6eef6; --muted: #9fb2c5; --rule: #23384d;
+  --navy: #0c2246; --navy-ink: #ffffff; --navy-muted: #c9ddf0; --navy-line: rgba(255,255,255,.3); --ochre: #e6b04a; --ochre-on-navy: #ffd27a;
+  color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--paper); color: var(--ink); font: 16px/1.6 var(--body); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* top bar */
+.band-top { background: var(--navy); color: var(--navy-ink); border-bottom: 1px solid var(--navy-line); overflow: hidden; }
+nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px; padding-block: 26px 36px; }
+.brand { display: inline-flex; flex-direction: column; gap: 8px; text-decoration: none; }
+/* logo: the letterhead's crossed lines — a vertical rule through the left of the name, a horizontal rule beneath it */
+.logo { position: relative; display: inline-block; margin-left: 18px; padding: 2px 0 11px 20px; font: 700 clamp(19px, 2.6vw, 24px)/1 var(--serif); letter-spacing: .01em; text-transform: uppercase; color: var(--navy-ink); }
+.logo::before { content: ""; position: absolute; left: 6px; top: -20px; bottom: -52px; width: 5px; background: currentColor; }
+.logo::after { content: ""; position: absolute; left: -18px; right: -140px; bottom: 0; height: 4px; background: currentColor; }
+.brand small { padding-left: 30px; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; color: var(--navy-muted); text-transform: uppercase; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; }
+.links a { text-decoration: none; color: var(--navy-muted); }
+.links a:hover { color: var(--navy-ink); }
+
+/* hero */
+.hero { position: relative; overflow: hidden; color: var(--navy-ink); border-bottom: 6px solid var(--ochre-on-navy);
+  /* blueprint grid: fine 24px lines, heavier line every 120px */
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-position: -1px -1px; }
+.hero .drawing { position: absolute; right: -40px; bottom: 0; width: min(980px, 95%); height: auto; color: var(--navy-ink); opacity: .17; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: end; padding-block: 56px 64px; }
+.hero h1 { font: 800 clamp(44px, 7.4vw, 92px)/.92 var(--display); text-transform: uppercase; letter-spacing: -.005em; margin: 0 0 22px; text-wrap: balance; }
+.hero h1 span { color: var(--ochre-on-navy); }
+.hero p { margin: 0; max-width: 54ch; color: var(--navy-muted); font-size: 18px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-block; padding: 12px 20px; font: 600 15px/1 var(--body); text-decoration: none; border: 1.5px solid var(--ochre-on-navy); }
+.btn.solid { background: var(--ochre-on-navy); color: #17222c; }
+.btn.ghost { color: var(--navy-ink); border-color: var(--navy-muted); }
+
+/* title block (drawing-sheet style) */
+.tblock { border: 1.5px solid var(--navy-line); font: 400 13px/1.4 var(--mono); }
+.tblock div { display: grid; grid-template-columns: 9.5em 1fr; border-top: 1px solid var(--navy-line); }
+.tblock div:first-child { border-top: 0; }
+.tblock dt, .tblock dd { margin: 0; padding: 9px 12px; }
+.tblock dt { color: var(--navy-muted); text-transform: uppercase; font-size: 11px; letter-spacing: .07em; border-right: 1px solid var(--navy-line); }
+.tblock dd { color: var(--navy-ink); font-variant-numeric: tabular-nums; }
+
+/* sections */
+section { padding-block: 72px; border-bottom: 1px solid var(--rule); }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ochre); margin: 0 0 12px; }
+h2 { font: 700 clamp(32px, 4.6vw, 48px)/1 var(--display); text-transform: uppercase; margin: 0 0 18px; text-wrap: balance; }
+h3 { font: 700 22px/1.1 var(--display); text-transform: uppercase; letter-spacing: .01em; margin: 0 0 8px; text-wrap: balance; }
+.lede { max-width: 64ch; color: var(--muted); font-size: 18px; margin: 0 0 40px; }
+
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.services > div { padding: 22px 22px 26px 0; border-bottom: 1px solid var(--rule); min-width: 0; }
+.services p { margin: 0; color: var(--muted); font-size: 15px; max-width: 40ch; }
+
+/* projects schedule */
+.proj { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.row { display: grid; grid-template-columns: 10.5em minmax(0, 1fr) 9em; gap: 20px; padding-block: 22px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.row .no { font: 500 12px/1.5 var(--mono); color: var(--muted); letter-spacing: .03em; }
+.row .no b { display: block; color: var(--ochre); font-weight: 500; }
+.row p { margin: 0; color: var(--muted); font-size: 15px; max-width: 62ch; }
+.row .val { text-align: right; font: 600 26px/1 var(--display); font-variant-numeric: tabular-nums; }
+.row .val small { display: block; font: 400 11px/1.6 var(--mono); color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+.tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 4px 7px; border: 1px solid var(--ochre); color: var(--ochre); margin-left: 8px; vertical-align: 3px; }
+
+/* approach */
+.approach { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px 40px; }
+.approach > div { min-width: 0; }
+.approach p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* clients strip */
+.clients { display: flex; flex-wrap: wrap; gap: 10px 36px; font: 600 20px/1.2 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.clients span { color: var(--muted); }
+
+/* contact */
+.contact { background: var(--sheet); border-bottom: 0; }
+.cgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; }
+.cgrid > div { min-width: 0; }
+.cgrid .lab { font: 500 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.cgrid .big { font: 600 24px/1.25 var(--display); overflow-wrap: anywhere; }
+.cgrid .big a { text-decoration: none; }
+.cgrid .big a:hover { text-decoration: underline; text-decoration-color: var(--ochre); }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.about .lede { margin-bottom: 16px; }
+.about .body { margin: 0; max-width: 62ch; color: var(--muted); }
+.team { margin: 0; border-top: 2px solid var(--ink); }
+.team div { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.team dt { font: 700 22px/1.1 var(--display); text-transform: uppercase; }
+.team dd { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.team dd span { display: block; font: 500 12px/1.6 var(--mono); color: var(--ochre); letter-spacing: .05em; }
+@media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 28px; } }
+
+/* bid invitations */
+.bids { margin-top: 44px; padding: 22px 24px; border: 1.5px solid var(--ochre); max-width: 760px; }
+.bids p { margin: 0; color: var(--muted); font-size: 15px; }
+.bids strong { color: var(--ink); overflow-wrap: anywhere; }
+
+footer { background: var(--navy); color: var(--navy-muted); font: 400 12px/1.6 var(--mono); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 22px; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 40px 48px; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .row .val { text-align: left; }
+  section { padding-block: 52px; }
+}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="band-top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top" aria-label="Gary S. Bailey, Inc. home"><span class="logo">Gary S. Bailey, Inc.</span><small>Building Contractor · Middleburg, FL</small></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#approach">How we work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <svg class="drawing" viewBox="0 0 1000 440" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <!-- front elevation of a gable metal building, drawn like a blueprint sheet -->
+    <line x1="20" y1="420" x2="980" y2="420" stroke-width="3"/>
+    <polyline points="140,420 140,210 500,90 860,210 860,420"/>
+    <line x1="140" y1="210" x2="860" y2="210" stroke-dasharray="10 8"/>
+    <g stroke-width="1" opacity=".7">
+      <line x1="200" y1="190" x2="200" y2="210"/><line x1="260" y1="170" x2="260" y2="210"/>
+      <line x1="320" y1="150" x2="320" y2="210"/><line x1="380" y1="130" x2="380" y2="210"/>
+      <line x1="440" y1="110" x2="440" y2="210"/><line x1="500" y1="90" x2="500" y2="210"/>
+      <line x1="560" y1="110" x2="560" y2="210"/><line x1="620" y1="130" x2="620" y2="210"/>
+      <line x1="680" y1="150" x2="680" y2="210"/><line x1="740" y1="170" x2="740" y2="210"/>
+      <line x1="800" y1="190" x2="800" y2="210"/>
+    </g>
+    <!-- roll-up doors -->
+    <rect x="200" y="270" width="160" height="150"/>
+    <rect x="640" y="270" width="160" height="150"/>
+    <g stroke-width="1" opacity=".7">
+      <line x1="200" y1="295" x2="360" y2="295"/><line x1="200" y1="320" x2="360" y2="320"/><line x1="200" y1="345" x2="360" y2="345"/><line x1="200" y1="370" x2="360" y2="370"/><line x1="200" y1="395" x2="360" y2="395"/>
+      <line x1="640" y1="295" x2="800" y2="295"/><line x1="640" y1="320" x2="800" y2="320"/><line x1="640" y1="345" x2="800" y2="345"/><line x1="640" y1="370" x2="800" y2="370"/><line x1="640" y1="395" x2="800" y2="395"/>
+    </g>
+    <!-- man door and window -->
+    <rect x="460" y="320" width="80" height="100"/>
+    <rect x="470" y="235" width="60" height="40"/>
+    <!-- dimension lines -->
+    <g stroke-width="1">
+      <line x1="140" y1="432" x2="860" y2="432"/><line x1="140" y1="426" x2="140" y2="438"/><line x1="860" y1="426" x2="860" y2="438"/>
+      <line x1="90" y1="210" x2="90" y2="420"/><line x1="84" y1="210" x2="96" y2="210"/><line x1="84" y1="420" x2="96" y2="420"/>
+      <line x1="910" y1="90" x2="910" y2="420"/><line x1="904" y1="90" x2="916" y2="90"/><line x1="904" y1="420" x2="916" y2="420"/>
+      <line x1="500" y1="90" x2="910" y2="90" stroke-dasharray="4 6"/>
+    </g>
+    <g fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace" font-size="14">
+      <text x="470" y="452">60'-0"</text>
+      <text x="50" y="320" transform="rotate(-90 50 320)">16'-0" EAVE</text>
+      <text x="930" y="270" transform="rotate(-90 930 270)">26'-0" RIDGE</text>
+      <text x="610" y="78">1:12 ROOF PITCH</text>
+      <text x="760" y="30">FRONT ELEVATION</text>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div>
+      <h1>Built in Northeast Florida. <span>Built to last.</span></h1>
+      <p>Gary S. Bailey, Inc. has been a general contractor in Middleburg since 1987. We build renovations, additions and new buildings for schools, churches and commercial owners. Every person on our job sites passes a Level 2 background screening under the Jessica Lunsford Act.</p>
+      <div class="cta">
+        <a class="btn solid" href="#contact">Contact us</a>
+        <a class="btn ghost" href="#projects">See recent projects</a>
+      </div>
+    </div>
+    <dl class="tblock" aria-label="Company information">
+      <div><dt>Contractor</dt><dd>Gary S. Bailey, Inc.</dd></div>
+      <div><dt>Established</dt><dd>October 1987</dd></div>
+      <div><dt>License</dt><dd>CBC018022 · CBC1270067</dd></div>
+      <div><dt>Type</dt><dd>Certified Building Contractor</dd></div>
+      <div><dt>Office</dt><dd>5201 C.R. 218, Middleburg, FL 32068</dd></div>
+      <div><dt>Phone</dt><dd>904-291-2291</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2>A family company since 1987</h2>
+        <p class="lede">Gary Bailey started the company in Middleburg in October 1987. Nearly four decades later it is still owned and run by the Bailey family, and a family member is on every job.</p>
+        <p class="body">Gary and his son Jason both hold Florida certified building contractor licenses. Gary leads the company as President, and Jason runs day-to-day operations, estimating and project management. When you call the office, you talk to the people who will build your project.</p>
+      </div>
+      <dl class="team">
+        <div><dt>Gary Bailey</dt><dd>President · Founder<span>CBC018022</span></dd></div>
+        <div><dt>Jason Bailey</dt><dd>COO · Project Manager<span>CBC1270067</span></dd></div>
+        <div><dt>Pamela Bailey</dt><dd>Vice President</dd></div>
+        <div><dt>Jessica Williams</dt><dd>Office Manager</dd></div>
+        <div><dt>Jacob Raines</dt><dd>Superintendent</dd></div>
+        <div><dt>Kyle Miller</dt><dd>Superintendent</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">What we build</p>
+      <h2>Services</h2>
+      <p class="lede"><strong style="color: var(--ink)">Fully licensed, insured and bondable commercial contractors.</strong> Hard-bid public work and private commercial projects across Northeast Florida, managed by the owners from bid through closeout.</p>
+      <div class="services">
+        <div><h3>School additions &amp; renovations</h3><p>Classroom additions and renovations of kitchens, cafeterias, restrooms and classrooms, phased around students and staff on occupied campuses.</p></div>
+        <div><h3>Design-build</h3><p>One contract from concept through completion. We bring in the architect and engineers and manage design, permitting and construction for you.</p></div>
+        <div><h3>Pre-engineered buildings</h3><p>Pre-engineered metal buildings, pole barns and greenhouses, from foundations and erection through finished interiors.</p></div>
+        <div><h3>Additions &amp; new buildings</h3><p>Ground-up buildings and additions to existing facilities, built to the Florida Building Code.</p></div>
+        <div><h3>Food service work</h3><p>Commercial kitchen renovations, walk-in freezer and cooler installations, and the site utilities to serve them.</p></div>
+        <div><h3>Churches &amp; commercial</h3><p>Fellowship halls and other private projects, bid or negotiated.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">Job list</p>
+      <h2>Recent projects</h2>
+      <p class="lede">A selection of our public and private work. Values shown are contract amounts.</p>
+      <div class="proj">
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-35-25/26</div>
+          <div><h3>Keystone Heights High School<span class="tag">Starting Nov 2026</span></h3><p>New pole barn and greenhouse for the school's career and technical education program.</p></div>
+          <div class="val">$389K<small>Contract</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-47-25/26</div>
+          <div><h3>Ridgeview Elementary School</h3><p>Restroom building renovation, including subfloor replacement. Completed August 2026.</p></div>
+          <div class="val">$248K<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-37-22/23</div>
+          <div><h3>Lakeside Elementary School</h3><p>Kitchen and cafeteria renovation and addition, with a new freezer/cooler yard and site utilities.</p></div>
+          <div class="val">$3.0M<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Private · Jacksonville</b>Chaffee Road Church of Christ</div>
+          <div><h3>Fellowship Hall<span class="tag">Design-build</span></h3><p>New fellowship hall building, designed and built under one contract and completed within the 270-day contract time.</p></div>
+          <div class="val">$1.3M<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-1-21/22</div>
+          <div><h3>Clay High School</h3><p>Renovation of multiple student restrooms. Completed July 2023.</p></div>
+          <div class="val">$797K<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-15-22/23</div>
+          <div><h3>Wilkinson Elementary School</h3><p>Kitchen renovation with a new walk-in freezer/cooler. Completed August 2023.</p></div>
+          <div class="val">$239K<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County District Schools</b>C-18-21/22</div>
+          <div><h3>Fleming Island High School</h3><p>New batting practice building for the baseball program: a pre-engineered metal building with site work, earthwork and stormwater.</p></div>
+          <div class="val">$776K<small>Contract</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Clay County Board of County Commissioners</b>RFP 17/18-36</div>
+          <div><h3>Masters Pit Maintenance Building<span class="tag">Design-build</span></h3><p>New county maintenance building and offices on Masters Road in Middleburg. We handled design, permitting, septic and site work, and construction. Completed December 2020.</p></div>
+          <div class="val">$490K<small>Contract</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Private · Sarasota</b>Comprehensive Care Center</div>
+          <div><h3>CAN/LSS Interior Build-Out</h3><p>Complete demolition and interior build-out of office space for a new medical and dental tenant. Completed April 2018.</p></div>
+          <div class="val">$709K<small>Final</small></div>
+        </article>
+        <article class="row">
+          <div class="no"><b>Private · Jacksonville</b>Sweetwater Church of Christ</div>
+          <div><h3>Sanctuary<span class="tag">Design-build</span></h3><p>New 10,000 sq. ft. sanctuary, a pre-engineered metal building designed and built under one contract. Completed 2013.</p></div>
+          <div class="val">$1.2M<small>Contract</small></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <p class="eyebrow">How we work</p>
+      <h2>On schedule, on campus, by the book</h2>
+      <p class="lede">The owners are on every job. A principal manages the project and a full-time superintendent runs the site every day.</p>
+      <div class="approach">
+        <div><h3>Scheduled to the critical path</h3><p>Every project gets a CPM schedule broken out by trade and updated monthly with the owner and architect. Long-lead equipment is released early.</p></div>
+        <div><h3>Built from approved submittals</h3><p>Nothing is ordered until the architect has reviewed it. Testing and inspections are scheduled at every stage, and every punch-list item is closed.</p></div>
+        <div><h3>Safe around students</h3><p>Everyone on site is Jessica Lunsford Act cleared. Work areas are fenced off, and noisy work is coordinated with school administration.</p></div>
+        <div><h3>Clean closeout</h3><p>As-builts, O&amp;M manuals, manufacturer warranties and our own one-year warranty, turned over at the end of the job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who we work with / have done work for</p>
+      <div class="clients">
+        <span>Clay County District Schools</span>
+        <span>Duval County Public Schools</span>
+        <span>St. Johns River State College</span>
+        <span>Clay County Board of County Commissioners</span>
+        <span>Clay County Sheriff's Office</span>
+        <span>Department of Veterans Affairs</span>
+        <span>Department of Military Affairs</span>
+        <span>Florida Highway Patrol</span>
+        <span>Jacksonville Jaguars</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Contact</h2>
+      <p class="lede">Send us plans and specs to bid, or call the office to talk about a project.</p>
+      <div class="cgrid">
+        <div><div class="lab">Office</div><div class="big"><a href="tel:+19042912291">904-291-2291</a></div></div>
+        <div><div class="lab">Fax</div><div class="big">904-291-2464</div></div>
+        <div><div class="lab">Email</div><div class="big"><a href="mailto:office@gsbaileyinc.com">office@gsbaileyinc.com</a></div></div>
+        <div><div class="lab">Address</div><div class="big">5201 C.R. 218<br>Middleburg, FL 32068</div></div>
+        <div><div class="lab">Office hours</div><div class="big">Monday – Friday<br>8 a.m. – 4 p.m.</div></div>
+      </div>
+      <div class="bids" id="bids">
+        <h3>Subcontractors &amp; suppliers</h3>
+        <p>We're always adding to our list of subcontractors and suppliers for upcoming bids. Send your quotes, line card and prequalification information to <strong>office@gsbaileyinc.com</strong>, and include your trade, license number and the counties you work in.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Gary S. Bailey, Inc. · Florida Certified Building Contractors CBC018022 / CBC1270067</span>
+    <span>gsbaileyinc.com</span>
+  </div>
+</footer>
+</body>
+</html>
