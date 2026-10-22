@@ -148,6 +148,18 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .row .val { text-align: left; }
   section { padding-block: 52px; }
 }
+.gal { grid-column: 1 / -1; display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 0 8px; margin-top: 6px; }
+.gal button { flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: zoom-in; scroll-snap-align: start; }
+.gal img { display: block; height: 120px; width: auto; border: 1px solid var(--rule); }
+.lb { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+.lb::backdrop { background: rgba(5,12,20,.92); }
+.lb figure { margin: 0; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 16px; box-sizing: border-box; }
+.lb img { max-width: 100%; max-height: calc(100vh - 90px); object-fit: contain; }
+.lb figcaption { color: #e6eef6; font: 500 13px/1.4 var(--mono); letter-spacing: .03em; }
+.lb .x, .lb .nav { position: fixed; background: rgba(0,0,0,.45); color: #fff; border: 1px solid rgba(255,255,255,.35); font: 600 22px/1 var(--body); width: 44px; height: 44px; cursor: pointer; }
+.lb .x { top: 14px; right: 14px; }
+.lb .nav { top: 50%; transform: translateY(-50%); }
+.lb .prev { left: 10px; } .lb .next { right: 10px; }
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -285,8 +297,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </article>
         <article class="row">
           <div class="no"><b>Private · Jacksonville</b>Chaffee Road Church of Christ</div>
-          <div><h3>Fellowship Hall<span class="tag">Design-build</span></h3><p>New fellowship hall building, designed and built under one contract and completed within the 270-day contract time.</p></div>
+          <div><h3>Fellowship Hall<span class="tag">Design-build</span></h3><p>New fellowship hall building, designed and built under one contract and completed within the 270-day contract time. <span style="white-space:nowrap">21 photos · scroll and tap to enlarge.</span></p></div>
           <div class="val">$1.3M<small>Final</small></div>
+          <div class="gal" aria-label="Chaffee Road Church photos"><button type="button" data-i="0"><img src="images/chaffee/01-t.jpg" alt="Rebar and vapor barrier ready for the slab" loading="lazy"></button><button type="button" data-i="1"><img src="images/chaffee/02-t.jpg" alt="Slab reinforcing in place" loading="lazy"></button><button type="button" data-i="2"><img src="images/chaffee/03-t.jpg" alt="Night slab pour" loading="lazy"></button><button type="button" data-i="3"><img src="images/chaffee/04-t.jpg" alt="Pump truck placing the slab" loading="lazy"></button><button type="button" data-i="4"><img src="images/chaffee/05-t.jpg" alt="Slab pour underway" loading="lazy"></button><button type="button" data-i="5"><img src="images/chaffee/06-t.jpg" alt="Ductwork above the ceiling" loading="lazy"></button><button type="button" data-i="6"><img src="images/chaffee/07-t.jpg" alt="Ceiling insulation going in" loading="lazy"></button><button type="button" data-i="7"><img src="images/chaffee/08-t.jpg" alt="Interior metal stud framing" loading="lazy"></button><button type="button" data-i="8"><img src="images/chaffee/09-t.jpg" alt="Serving window in the kitchen wall" loading="lazy"></button><button type="button" data-i="9"><img src="images/chaffee/10-t.jpg" alt="HVAC equipment and ductwork" loading="lazy"></button><button type="button" data-i="10"><img src="images/chaffee/11-t.jpg" alt="Interior framing and mechanical rough-in" loading="lazy"></button><button type="button" data-i="11"><img src="images/chaffee/12-t.jpg" alt="Electrical service" loading="lazy"></button><button type="button" data-i="12"><img src="images/chaffee/13-t.jpg" alt="AC condensers on their pad" loading="lazy"></button><button type="button" data-i="13"><img src="images/chaffee/14-t.jpg" alt="New concrete walkway" loading="lazy"></button><button type="button" data-i="14"><img src="images/chaffee/15-t.jpg" alt="Steel column base" loading="lazy"></button><button type="button" data-i="15"><img src="images/chaffee/16-t.jpg" alt="Finished building exterior" loading="lazy"></button><button type="button" data-i="16"><img src="images/chaffee/17-t.jpg" alt="Finished hallway" loading="lazy"></button><button type="button" data-i="17"><img src="images/chaffee/18-t.jpg" alt="Restroom" loading="lazy"></button><button type="button" data-i="18"><img src="images/chaffee/19-t.jpg" alt="Accessible restroom" loading="lazy"></button><button type="button" data-i="19"><img src="images/chaffee/20-t.jpg" alt="Fellowship hall" loading="lazy"></button><button type="button" data-i="20"><img src="images/chaffee/21-t.jpg" alt="Covered walkway" loading="lazy"></button></div>
         </article>
         <article class="row">
           <div class="no"><b>Clay County District Schools</b>C-1-21/22</div>
@@ -379,5 +392,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <span>gsbaileyinc.com</span>
   </div>
 </footer>
+<dialog class="lb" id="lb" aria-label="Photo viewer"><figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure><button class="x" type="button" aria-label="Close">&times;</button><button class="nav prev" type="button" aria-label="Previous photo">&#8249;</button><button class="nav next" type="button" aria-label="Next photo">&#8250;</button></dialog>
+<script>
+(function(){var g=document.querySelector('.gal'),d=document.getElementById('lb');if(!g||!d)return;
+var b=[].slice.call(g.querySelectorAll('button')),im=document.getElementById('lbimg'),cp=document.getElementById('lbcap'),k=0;
+function show(i){k=(i+b.length)%b.length;var t=b[k].querySelector('img');im.src=t.src.replace('-t.jpg','.jpg');im.alt=t.alt;cp.textContent=(k+1)+' / '+b.length+' \u00b7 '+t.alt;}
+b.forEach(function(x,i){x.addEventListener('click',function(){show(i);d.showModal();});});
+d.querySelector('.x').onclick=function(){d.close();};d.querySelector('.prev').onclick=function(){show(k-1);};d.querySelector('.next').onclick=function(){show(k+1);};
+d.addEventListener('click',function(e){if(e.target===d||e.target.tagName==='FIGURE')d.close();});
+d.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
+var sx=null;d.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});d.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(k+(dx<0?1:-1));sx=null;});
+})();
+</script>
 </body>
 </html>
