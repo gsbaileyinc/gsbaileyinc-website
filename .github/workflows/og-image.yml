@@ -1,0 +1,44 @@
+# Takes a picture of the top of the live homepage and saves it as the
+# link-preview image (images/og-image.png) used when the site is texted or shared.
+# Run again from the Actions tab ("Run workflow") whenever the top banner changes.
+name: Update link preview image
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/og-image.yml']
+permissions:
+  contents: write
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install browser
+        run: |
+          npm init -y >/dev/null
+          npm i playwright@1.47.2
+          npx playwright install --with-deps chromium
+      - name: Capture homepage banner
+        run: |
+          cat > shot.mjs <<'JS'
+          import { chromium } from 'playwright';
+          const b = await chromium.launch();
+          const p = await b.newPage({ viewport: { width: 1600, height: 840 }, colorScheme: 'light' });
+          await p.goto('https://gsbaileyinc.com/', { waitUntil: 'networkidle' });
+          await p.evaluate(() => document.fonts.ready);
+          await p.waitForTimeout(1500);
+          await p.screenshot({ path: 'images/og-image.png' });
+          await b.close();
+          JS
+          node shot.mjs
+      - name: Save image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/og-image.png
+          git diff --cached --quiet || git commit -m "Update link preview image"
+          git push
