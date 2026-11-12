@@ -93,6 +93,9 @@ nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: spac
 .logo { position: relative; display: inline-block; margin-left: 18px; padding: 2px 0 11px 20px; font: 700 clamp(19px, 2.6vw, 24px)/1 var(--serif); letter-spacing: .01em; text-transform: uppercase; color: var(--navy-ink); }
 .logo::before { content: ""; position: absolute; left: 6px; top: -20px; bottom: -52px; width: 5px; background: currentColor; }
 .logo::after { content: ""; position: absolute; left: -18px; right: -140px; bottom: 0; height: 4px; background: currentColor; }
+nav .brand { margin-right: 130px; }
+nav .links { margin-left: auto; }
+@media (max-width: 600px) { nav .brand { margin-right: 0; } nav .links { margin-left: 0; padding-left: 32px; } }
 .brand small { padding-left: 30px; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; color: var(--navy-muted); text-transform: uppercase; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; }
 .links a { text-decoration: none; color: var(--navy-muted); }
