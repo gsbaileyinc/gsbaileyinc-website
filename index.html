@@ -164,6 +164,12 @@ h3 { font: 700 22px/1.1 var(--display); text-transform: uppercase; letter-spacin
 .cgrid .big { font: 600 24px/1.25 var(--display); overflow-wrap: anywhere; }
 .cgrid .big a { text-decoration: none; }
 .cgrid .big a:hover { text-decoration: underline; text-decoration-color: var(--ochre); }
+.dirlink { display: inline-block; margin-top: 10px; font: 600 15px/1 var(--body); color: var(--ochre); text-decoration: none; }
+.dirlink:hover, .dirlink:focus-visible { text-decoration: underline; }
+.mapbox { margin-top: 36px; display: grid; gap: 14px; justify-items: start; }
+.mapbox iframe { display: block; width: 100%; max-width: 100%; height: 340px; border: 1px solid var(--rule); }
+.btn.dir { background: var(--navy); color: var(--navy-ink); border-color: var(--navy); }
+.btn.dir:hover, .btn.dir:focus-visible { background: var(--ink); border-color: var(--ink); }
 
 /* about */
 .about { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; align-items: start; }
@@ -417,8 +423,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div><div class="lab">Office</div><div class="big"><a href="tel:+19042912291">904-291-2291</a></div></div>
         <div><div class="lab">Fax</div><div class="big">904-291-2464</div></div>
         <div><div class="lab">Email</div><div class="big"><a href="mailto:office@gsbaileyinc.com">office@gsbaileyinc.com</a></div></div>
-        <div><div class="lab">Address</div><div class="big">5201 C.R. 218<br>Middleburg, FL 32068</div></div>
+        <div><div class="lab">Address</div><div class="big">5201 C.R. 218<br>Middleburg, FL 32068</div><a class="dirlink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gary+S.+Bailey%2C+Inc.%2C+5201+County+Road+218%2C+Middleburg%2C+FL+32068&amp;destination_place_id=ChIJD8shRgDm5YgRB7PPfvZ3FyE" target="_blank" rel="noopener">Get directions &rarr;</a></div>
         <div><div class="lab">Office hours</div><div class="big">Monday – Friday<br>8 a.m. – 4 p.m.</div></div>
+      </div>
+      <div class="mapbox">
+        <iframe title="Map to Gary S. Bailey, Inc., 5201 C.R. 218, Middleburg, FL" src="https://www.google.com/maps?q=Gary+S.+Bailey%2C+Inc.%2C+5201+County+Road+218%2C+Middleburg%2C+FL+32068&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <a class="btn dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gary+S.+Bailey%2C+Inc.%2C+5201+County+Road+218%2C+Middleburg%2C+FL+32068&amp;destination_place_id=ChIJD8shRgDm5YgRB7PPfvZ3FyE" target="_blank" rel="noopener">Get directions in Google Maps</a>
       </div>
       <div class="bids" id="bids">
         <h3>Subcontractors &amp; suppliers</h3>
