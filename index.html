@@ -156,6 +156,24 @@ h3 { font: 700 22px/1.1 var(--display); text-transform: uppercase; letter-spacin
 .clients { display: flex; flex-wrap: wrap; gap: 10px 36px; font: 600 20px/1.2 var(--display); text-transform: uppercase; letter-spacing: .02em; }
 .clients span { color: var(--muted); }
 
+/* credentials band */
+.creds { background: var(--paper, #fff); padding-block: 28px 30px; }
+.credlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px 28px; }
+@media (min-width: 1000px) { .credlist { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.credlist li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; min-width: 0; }
+.credlist .ck { display: grid; place-items: center; width: 26px; height: 26px; background: var(--navy); color: var(--ochre-on-navy); font: 700 14px/1 var(--body); }
+.credlist strong { display: block; font: 700 16px/1.2 var(--display); text-transform: uppercase; color: var(--ink); }
+.credlist span { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
+.credlist a { color: var(--ochre); text-decoration: none; font-weight: 600; }
+.credlist a:hover, .credlist a:focus-visible { text-decoration: underline; }
+.prequal { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.pqlabel { margin: 0; font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ochre); }
+.pqlist { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 16px; }
+.pqlist li { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1.5px solid var(--ink); font: 700 15px/1.2 var(--display); text-transform: uppercase; color: var(--ink); }
+.pqmark { display: grid; place-items: center; min-width: 34px; height: 34px; padding: 0 4px; border-radius: 50%; background: var(--navy); color: var(--ochre-on-navy); font: 600 11px/1 var(--mono); letter-spacing: .04em; }
+.cgrid .em .big { font-size: clamp(18px, 1.75vw, 22px); overflow-wrap: normal; white-space: nowrap; }
+@media (max-width: 360px) { .cgrid .em .big { white-space: normal; overflow-wrap: anywhere; } }
+
 /* reviews */
 .rating { margin: -24px 0 32px; font-size: 17px; color: var(--muted); }
 .rating .stars { color: var(--ochre); letter-spacing: 2px; font-size: 20px; }
@@ -298,6 +316,26 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </dl>
   </div>
 </header>
+
+<section class="creds" aria-label="Credentials">
+  <div class="wrap">
+    <ul class="credlist">
+      <li><span class="ck" aria-hidden="true">&#10003;</span><div><strong>State-certified</strong><span>CBC018022 &middot; CBC1270067</span><span><a href="https://www.myfloridalicense.com/LicenseDetail.asp?SID=&amp;id=7FBF2DDB304508E0FF86CE554964EA4F" target="_blank" rel="noopener">Verify our license &rarr;</a></span></div></li>
+      <li><span class="ck" aria-hidden="true">&#10003;</span><div><strong>Fully insured</strong><span>General liability, auto and workers&rsquo; comp</span></div></li>
+      <li><span class="ck" aria-hidden="true">&#10003;</span><div><strong>Bonded</strong><span>Performance and payment bonds</span></div></li>
+      <li><span class="ck" aria-hidden="true">&#10003;</span><div><strong>E-Verify enrolled</strong><span>Every employee verified</span></div></li>
+      <li><span class="ck" aria-hidden="true">&#10003;</span><div><strong>Jessica Lunsford Act</strong><span>Level 2 screened crews on school sites</span></div></li>
+    </ul>
+    <div class="prequal">
+      <p class="pqlabel">Prequalified with</p>
+      <ul class="pqlist">
+        <li><span class="pqmark" aria-hidden="true">CC</span>Clay County School Board</li>
+        <li><span class="pqmark" aria-hidden="true">DC</span>Duval County Public Schools</li>
+        <li><span class="pqmark" aria-hidden="true">SJR</span>St. Johns River State College</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <main>
   <section id="about">
@@ -454,7 +492,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="cgrid">
         <div><div class="lab">Office</div><div class="big"><a href="tel:+19042912291">904-291-2291</a></div></div>
         <div><div class="lab">Fax</div><div class="big">904-291-2464</div></div>
-        <div><div class="lab">Email</div><div class="big"><a href="mailto:office@gsbaileyinc.com">office@gsbaileyinc.com</a></div></div>
+        <div class="em"><div class="lab">Email</div><div class="big"><a href="mailto:office@gsbaileyinc.com">office@gsbaileyinc.com</a></div></div>
         <div><div class="lab">Address</div><div class="big">5201 C.R. 218<br>Middleburg, FL 32068</div><a class="dirlink" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gary+S.+Bailey%2C+Inc.%2C+5201+County+Road+218%2C+Middleburg%2C+FL+32068&amp;destination_place_id=ChIJD8shRgDm5YgRB7PPfvZ3FyE" target="_blank" rel="noopener">Get directions &rarr;</a></div>
         <div><div class="lab">Office hours</div><div class="big">Monday – Friday<br>8 a.m. – 4 p.m.</div></div>
       </div>
