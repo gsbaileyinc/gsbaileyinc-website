@@ -156,6 +156,19 @@ h3 { font: 700 22px/1.1 var(--display); text-transform: uppercase; letter-spacin
 .clients { display: flex; flex-wrap: wrap; gap: 10px 36px; font: 600 20px/1.2 var(--display); text-transform: uppercase; letter-spacing: .02em; }
 .clients span { color: var(--muted); }
 
+/* reviews */
+.rating { margin: -24px 0 32px; font-size: 17px; color: var(--muted); }
+.rating .stars { color: var(--ochre); letter-spacing: 2px; font-size: 20px; }
+.rating strong { color: var(--ink); }
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.quote { margin: 0; padding-top: 18px; border-top: 2px solid var(--ink); display: grid; gap: 16px; align-content: start; min-width: 0; }
+.quote blockquote { margin: 0; font: 600 22px/1.35 var(--display); color: var(--ink); text-wrap: pretty; }
+.quote figcaption { font: 600 15px/1.2 var(--body); color: var(--ink); }
+.quote figcaption span { display: block; margin-top: 4px; font: 500 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.revlinks { margin: 32px 0 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.revlinks a { font: 600 15px/1 var(--body); color: var(--ochre); text-decoration: none; }
+.revlinks a:hover, .revlinks a:focus-visible { text-decoration: underline; }
+
 /* contact */
 .contact { background: var(--sheet); border-bottom: 0; }
 .cgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; }
@@ -411,6 +424,25 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <span>Florida Highway Patrol</span>
         <span>Jacksonville Jaguars</span>
       </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <p class="eyebrow">What clients say</p>
+      <h2>Reviews</h2>
+      <p class="rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5.0</strong> on Google &middot; 5 reviews</p>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>&ldquo;These guys are the BEST to work with! Seriously! From start to finish and every detail in between! Very happy with them, would not have chosen anyone else. Thank you guys for all your hard work!&rdquo;</blockquote>
+          <figcaption>Meagan Futch, Natural Healing Day Spa <span>Google review</span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>&ldquo;If honesty, quality and dependability is required, Gary S. Bailey is your Contractor for you.&rdquo;</blockquote>
+          <figcaption>Don Newman <span>Google review</span></figcaption>
+        </figure>
+      </div>
+      <p class="revlinks"><a href="https://www.google.com/maps/place/?q=place_id:ChIJD8shRgDm5YgRB7PPfvZ3FyE" target="_blank" rel="noopener">Read our reviews on Google &rarr;</a><a href="https://search.google.com/local/writereview?placeid=ChIJD8shRgDm5YgRB7PPfvZ3FyE" target="_blank" rel="noopener">Worked with us? Leave a review &rarr;</a></p>
     </div>
   </section>
 
