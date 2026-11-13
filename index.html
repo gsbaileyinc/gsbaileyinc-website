@@ -88,15 +88,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ochre); outline
 /* top bar */
 .band-top { background: var(--navy); color: var(--navy-ink); border-bottom: 1px solid var(--navy-line); overflow: hidden; }
 nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px; padding-block: 26px 36px; }
-.brand { display: inline-flex; flex-direction: column; gap: 8px; text-decoration: none; }
-/* logo: the letterhead's crossed lines — a vertical rule through the left of the name, a horizontal rule beneath it */
-.logo { position: relative; display: inline-block; margin-left: 18px; padding: 2px 0 11px 20px; font: 700 clamp(19px, 2.6vw, 24px)/1 var(--serif); letter-spacing: .01em; text-transform: uppercase; color: var(--navy-ink); }
-.logo::before { content: ""; position: absolute; left: 6px; top: 4px; bottom: -52px; width: 5px; background: currentColor; }
-.logo::after { content: ""; position: absolute; left: -18px; right: 0; bottom: 0; height: 5px; background: linear-gradient(currentColor, currentColor) left center / 53px 100% no-repeat, linear-gradient(currentColor, currentColor) left center / 100% 2px no-repeat; }
+.brand { position: relative; display: inline-flex; flex-direction: column; gap: 7px; margin-left: 22px; padding: 0 0 13px 38px; color: var(--navy-ink); text-decoration: none; }
+/* logo: the letterhead's cross — a thin vertical rule left of the name, a horizontal rule under the tagline that is bold for equal arms either side of the vertical, then thin to the end of the name */
+.logo { position: relative; display: inline-block; align-self: flex-start; font: 700 clamp(19px, 2.6vw, 24px)/1 var(--serif); letter-spacing: .01em; text-transform: uppercase; color: var(--navy-ink); }
+.brand::before { content: ""; position: absolute; left: 20px; top: -4px; bottom: -40px; width: 3px; background: currentColor; }
+.logo::after { content: ""; position: absolute; left: -58px; right: 0; top: calc(100% + 30px); height: 5px; background: linear-gradient(currentColor, currentColor) left center / 83px 100% no-repeat, linear-gradient(currentColor, currentColor) left center / 100% 2px no-repeat; }
 nav .brand { margin-right: 130px; }
 nav .links { margin-left: auto; }
-@media (max-width: 600px) { nav .brand { margin-right: 0; } nav .links { margin-left: 0; padding-left: 32px; } }
-.brand small { padding-left: 30px; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; color: var(--navy-muted); text-transform: uppercase; }
+@media (max-width: 600px) { nav .brand { margin-right: 0; } .brand::before { bottom: -12px; } nav .links { margin-left: 0; padding-left: 32px; } }
+.brand small { font: 500 11px/1.4 var(--mono); letter-spacing: .08em; color: var(--navy-muted); text-transform: uppercase; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; }
 .links a { text-decoration: none; color: var(--navy-muted); }
 .links a:hover { color: var(--navy-ink); }
